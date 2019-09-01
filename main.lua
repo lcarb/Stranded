@@ -1,19 +1,27 @@
+local em = require("Game/Entities/entity")
+
 function love.load()
 
-  player = {}
-  player.x = 400;
-  player.y = 300;
+  player = em.Entity:new()
 
-  love.keyboard.setKeyRepeat(true)
-  love.print("Got you")
 end
 
 function love.update(dt)
-  if love.keyboard.isDown("d") then
-    player.x = player.x+1
-  elseif love.keyboard.isDown("a") then
-    player.x = player.x-1
-  end
+  right = 0
+  left = 0
+  down = 0
+  up = 0
+
+  speed = 5
+
+  if love.keyboard.isDown("d") then right = 1 else right = 0 end
+  if love.keyboard.isDown("a") then left = 1 else left = 0 end
+  if love.keyboard.isDown("s") then down = 1 else down = 0 end
+  if love.keyboard.isDown("w") then up = 1 else up = 0 end
+
+  player.x = player.x + (right - left)*speed
+  player.y = player.y + (down - up)*speed
+
 end
 
 function love.draw()
