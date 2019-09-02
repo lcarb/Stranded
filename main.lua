@@ -5,7 +5,6 @@ function love.load()
   player.y = 300;
 
   love.keyboard.setKeyRepeat(true)
-  love.print("Got you")
 end
 
 function love.update(dt)
