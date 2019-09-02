@@ -27,7 +27,7 @@ function Player:update(dt)
     elseif love.keyboard.isDown("left") then --press the left arrow key to push the ball to the left
       self.body:applyForce(-400, 0)
     elseif love.keyboard.isDown("up") then --press the up arrow key to set the ball in the air
-      self.body:applyForce(0, 1000)
+      self.body:applyForce(0, -1000)
     end
 end
 
